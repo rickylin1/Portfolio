@@ -2,12 +2,36 @@
     color:white
 }
 
+.hint{
+    font-size: x-small;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+}
+
 .resume{
     display: flex;
     justify-content: center;
-    gap:10px;
-    
+    align-items: center;
+    gap:10px;  
+    padding-left:30px;
 }
+
+
+.resume-hidden {
+    opacity: 0;
+    max-height: 0;
+    /* overflow: hidden; */
+    transition: opacity 0.5s ease-out, max-height 0.5s ease-out;
+}
+
+.resume-visible {
+    opacity: 1;
+    max-height: 100px; /* Adjust as needed */
+    transition: opacity 0.5s ease-in, max-height 0.5s ease-in;
+}
+
 
 .search__input {
     display: flex;
@@ -73,5 +97,6 @@
 }
 
 .search__buttonsHidden {
-    display: none !important;
+    display: none;
 }
+

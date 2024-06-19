@@ -1,10 +1,11 @@
 import React from 'react'
 import '../styles/Home.css'
-import { Link } from "react-router-dom";
+import {NavLink} from "react-router-dom"
 import AppsIcon from "@mui/icons-material/Apps";
 import Search from '../components/Search';
 import RLogo from '../assets/R.png'
 import Google from '../assets/Google.png'
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Home = () => {
     return (
@@ -12,13 +13,21 @@ const Home = () => {
     
           <div className='home__header'>
                 <div className='home__headerLeft'>
-                    <Link to='/about'>About</Link>
-                    <Link to='/store'>Store</Link>
+                <a href="https://haunted-house-3exjxb45c-rickylin1s-projects.vercel.app/" target="_blank" rel="noopener noreferrer" className="ml-4">
+                      Spooky House
+                    </a>
+                    <a href="https://galaxy-generator-m5wfwkcmo-rickylin1s-projects.vercel.app/" target="_blank" rel="noopener noreferrer" className="ml-4">
+                      Galaxy Generator
+                    </a>
                 </div>
     
                 <div className='home__headerRight'>
-                    <Link to='/gmail'>Gmail</Link>
-                    <Link to='/images'>Images</Link>
+                <a href="https://www.linkedin.com/in/ricky-lin1" target="_blank" rel="noopener noreferrer" className="ml-4">
+                    Linkedin
+                </a>
+                <a href="https://github.com/rickylin1" target="_blank" rel="noopener noreferrer" className="ml-4">
+                    Github
+                </a>
                     {/* <Tooltip title="Google Apps"> */}
                     <AppsIcon />
                     {/* </Tooltip> */}
