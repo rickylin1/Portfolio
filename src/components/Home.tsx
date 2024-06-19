@@ -2,13 +2,13 @@ import React from 'react'
 import '../styles/Home.css'
 import { Link } from "react-router-dom";
 import AppsIcon from "@mui/icons-material/Apps";
-import Avatar from "@mui/material/Avatar";
 import Search from '../components/Search';
+import RLogo from '../assets/R.png'
+import Google from '../assets/Google.png'
 
 const Home = () => {
     return (
         <div className='home'>
-          {/* <h1>This is Home Page</h1> */}
     
           <div className='home__header'>
                 <div className='home__headerLeft'>
@@ -23,7 +23,7 @@ const Home = () => {
                     <AppsIcon />
                     {/* </Tooltip> */}
                     {/* <Tooltip title="Google Account"> */}
-                      <Avatar />
+                      <img className = "pfp" src = {RLogo}></img>
                     {/* </Tooltip> */}
                 </div>
     
@@ -32,10 +32,10 @@ const Home = () => {
           <div className='home__body'>
               
               <center>
-                <img className='woogle__logo' src='woogle.png' alt="googlelogo" />
+                <img className = "Googlelogo" src= {Google} alt="googlelogo" />
               </center>
-              <p className='woogle__credits'>
-                Made with React(love) by WVD
+              <p className='google__credits'>
+                Made with love by Ricky
               </p>
               
               <div className='home__inputContainer'>

@@ -1,15 +1,28 @@
+.icons{
+    color:white
+}
+
+.resume{
+    display: flex;
+    justify-content: center;
+    gap:10px;
+    
+}
+
 .search__input {
     display: flex;
     align-items: center;
     border: 1px solid lightgray;
-    height: 30px;
-    padding: 10px 20px;
+    height: 50px;
+    padding: 20px 40px;
     border-radius: 999px;
     width: 75vw;
     margin: 0 auto;
     margin-top: 10px;
     margin-bottom: 5px;
     max-width: 560px;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    background-color: white; /* Ensure the background is white */
 }
 
 .search__input > input {
@@ -17,14 +30,23 @@
     padding: 10px 20px;
     font-size: medium;
     border: none;
+    outline: none; /* Remove default outline on focus */
+    background: transparent; /* Ensure background is transparent */
 }
 
-.search__input >input:focus {
-    outline-width: 0;
+.search__input > input:focus {
+    outline: none;
+    border: none;
 }
 
 .search__inputIcon {
     color: gray;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
 }
 
 .search__buttons {
