@@ -22,7 +22,7 @@
 .resume-hidden {
     opacity: 0;
     max-height: 0;
-    /* overflow: hidden; */
+    overflow: hidden;
     transition: opacity 0.5s ease-out, max-height 0.5s ease-out;
 }
 

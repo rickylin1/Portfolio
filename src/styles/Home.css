@@ -1,13 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.pfp{
+/* Light mode styles */
+.pfp {
     width: 50px; /* Adjust as needed */
     height: auto; /* This maintains aspect ratio */
 }
 
-.Googlelogo{
+.Googlelogo {
     width: 300px; /* Adjust as needed */
     height: auto; /* This maintains aspect ratio */
 }
@@ -16,7 +13,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255); /* Light mode background */
 }
 
 .home__header {
@@ -24,13 +21,13 @@
     justify-content: space-between;
     padding: 20px 30px;
     align-items: center;
-    padding-top: 10px;
+    padding-top: 1;
 }
 
 .home__header a {
     margin-right: 20px;
     text-decoration: inherit;
-    color: rgba(0, 0, 0, 0.87);
+    color: rgba(0, 0, 0, 0.87); /* Light mode text color */
     font-size: 15px;
 }
 
@@ -42,7 +39,7 @@
     display: flex;
     align-items: center;
     min-width: 13vw;
-    /* justify-content: space-between; */
+    gap: 10px;
 }
 
 .home__headerRight > .MuiSvgIcon-root {
@@ -72,8 +69,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: rgb(0, 132, 234);
+    color: rgb(0, 132, 234); /* Light mode text color */
     font-size: 10px;
     margin-left: 140px;
     margin-bottom: 20px;
+}
+
+/* Dark mode styles */
+.dark .home {
+    background-color: rgb(36, 36, 36); /* Dark mode background color */
+}
+
+.dark .home__header a {
+    color: rgba(255, 255, 255, 0.87); /* Dark mode text color */
+}
+
+.dark .google__credits {
+    color: rgb(0, 132, 234); /* Dark mode text color */
 }
