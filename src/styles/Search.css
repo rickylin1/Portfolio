@@ -2,6 +2,10 @@
     color:white
 }
 
+.home{
+    background-color: rgb(255, 255, 255);
+}
+
 .hint{
     font-size: x-small;
     display: flex;
