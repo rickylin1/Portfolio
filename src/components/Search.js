@@ -16,7 +16,7 @@ function Search({ hideButtons = false }) {
     const [redirectToResume, setRedirectToResume] = useState(false);
     const [redirectToHome, setRedirectToHome] = useState(false);
     const [redirectToRickyLin, setRedirectToRickyLin] = useState(false);
-    const [hint, setHint] = useState("try searching for resume");
+    const [hint, setHint] = useState("try searching for Resume");
 
     useEffect(() => {
         if (hideButtons) {
@@ -27,7 +27,8 @@ function Search({ hideButtons = false }) {
     }, [hideButtons]);
 
     useEffect(() => {
-        const hints = ["try searching for Ricky Lin", "try searching for resume", "try searching for home"];
+        const hints = ["try searching for Ricky Lin", "try searching for Resume", "try searching for Home"];
+        //NOTE MAYBE ADD REDIRECT TO PROJECTS OR LINKEDIN OR OTHER THINGS
         let currentHintIndex = 0;
 
         const intervalId = setInterval(() => {

@@ -12,7 +12,8 @@ const MyThreeComponent: React.FC = () => {
     // Parameters
     const parameters = {
     //   materialColor: '#ffeded'
-      materialColor: '#ffebf5'
+    //   materialColor: '#ffebf5'
+      materialColor: '#424242'
     //   materialColor: '#747272'
     };
 
@@ -22,19 +23,7 @@ const MyThreeComponent: React.FC = () => {
     const textureLoader = new THREE.TextureLoader();
     const texturePath = Five
 
-    const onLoad = (loadedTexture: THREE.Texture) => {
-        console.log('Texture loaded successfully:', loadedTexture);
-      };
-  
-      const onProgress = (xhr: ProgressEvent<EventTarget>) => {
-        console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
-      };
-  
-      const onError = (err: ErrorEvent) => {
-        console.error('Error loading texture:', err);
-      };
-
-    const texture = textureLoader.load(texturePath, onLoad, onProgress, onError);
+    const texture = textureLoader.load(texturePath);
     texture.magFilter = THREE.NearestFilter;
     texture.minFilter = THREE.NearestFilter;
 
@@ -52,6 +41,7 @@ const MyThreeComponent: React.FC = () => {
 
     mesh1.position.y = objectDistance * 0;
     mesh1.position.x = 2;
+    mesh1.position.z -= 1
 
 
     const meshs = [mesh1];
@@ -108,10 +98,27 @@ const MyThreeComponent: React.FC = () => {
 
     // GUI
     const gui = new dat.GUI();
-    gui.addColor(parameters, 'materialColor').onChange(() => {
-      material.color.set(parameters.materialColor);
-      particlesMaterial.color.set(parameters.materialColor);
+
+    gui.hide()
+
+    let colorPickerAdded = false;
+
+    document.addEventListener('click', () => {
+    if (gui.domElement.style.display === 'none') {
+        gui.show();
+        if (!colorPickerAdded) {
+        gui.addColor(parameters, 'materialColor').onChange(() => {
+            material.color.set(parameters.materialColor);
+            particlesMaterial.color.set(parameters.materialColor);
+        });
+        colorPickerAdded = true; 
+        }
+    } else {
+        gui.domElement.style.display = 'block';
+    }
     });
+
+     
 
     // Scroll and Mouse Events
     let scrollY = window.scrollY;
@@ -194,7 +201,7 @@ const MyThreeComponent: React.FC = () => {
   }, []); // Empty dependency array ensures this runs once on mount
 
   return (
-    <canvas className="webgl" ref={canvasRef}></canvas>
+    <canvas className="webgl p-20 pt-20" ref={canvasRef}></canvas>
   );
 };
 

@@ -8,7 +8,7 @@ function Home() {
   const h14 = useRef<HTMLHeadingElement>(null);
 
   const [index, setIndex] = useState(0);
-  const texts = ['Engineer', 'Uni Student', 'Lifter', 'Learner', 'Lover'].map(text => `I am a ${text}`);
+  const texts = ['Engineer', 'Uni Student', 'Lifter', 'Learner', 'Friend', 'Son'].map(text => `I am a ${text}`);
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -50,46 +50,47 @@ function Home() {
   }, [texts]);
 
   return (
-    <div>
-      <main ref={heroSection} className="pt-30 container mx-auto max-width section md:flex justify-between items-center">
-        <div className="flex flex-col md:flex-row items-center md:items-start">
-          <div className="mr-8 md:mr-12">
+    <div className = "pl-0 ml-0 mr-0 bg-black">
+      <main ref={heroSection} className="pt-30 container mx-auto max-width section md:flex justify-between items-center pl-0 ml-0 mr-0">
+        <div className="flex flex-col md:flex-row items-center md:items-start ml-0 pl-0">
+          
+          {/* <div className="pl-0 ml-0">
             <img
               className="w-1/2 md:w-auto" // Adjusted width for responsiveness
               src={RLogo}
               alt="R Logo"
             />
-          </div>
+          </div> */}
           <div>
             <h1
-              className="text-2xl text-dark-heading dark:text-light-heading md:text-4xl xl:text-5xl xl:leading-tight font-bold"
+              className="text-white text-2xl text-dark-heading dark:text-light-heading md:text-4xl xl:text-5xl xl:leading-tight font-bold"
               style={{
-                textShadow: "0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(59, 130, 246, 0.5), 0 0 30px rgba(59, 130, 246, 0.3)",
-              }} // Text glow effect
+                textShadow: "0 0 64px white",
+              }} 
             >
               Hi, 👋<br />My Name is<br />
             </h1>
             <h1
-              className="text-2xl bg-clip-text bg-gradient md:text-4xl xl:text-5xl xl:leading-tight font-bold"
+              className="text-white text-2xl bg-clip-text bg-gradient md:text-4xl xl:text-5xl xl:leading-tight font-bold"
               style={{
-                textShadow: "0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(59, 130, 246, 0.5), 0 0 30px rgba(59, 130, 246, 0.3)",
-              }} // Text glow effect
+                textShadow: "0 0 64px white",
+              }} 
             >
               Ricky
             </h1> 
             <h1
-              className="text-2xl bg-clip-text bg-gradient md:text-4xl xl:text-5xl xl:leading-tight font-bold"
+              className="text-white text-2xl bg-clip-text bg-gradient md:text-4xl xl:text-5xl xl:leading-tight font-bold"
               style={{
-                textShadow: "0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(59, 130, 246, 0.5), 0 0 30px rgba(59, 130, 246, 0.3)",
-              }} // Text glow effect
+                textShadow: "0 0 64px white",
+              }} 
             >
               CS & Stats @ UIUC
             </h1>
             <h2
               ref={h14}
-              className="text-2xl text-dark-heading dark:text-light-heading md:text-4xl xl:text-5xl xl:leading-tight font-bold"
+              className="text-white text-2xl text-dark-heading dark:text-light-heading md:text-4xl xl:text-5xl xl:leading-tight font-bold"
               style={{
-                textShadow: "0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(59, 130, 246, 0.5), 0 0 30px rgba(59, 130, 246, 0.3)",
+                textShadow: "0 0 64px white",
               }} // Text glow effect
             >
               {texts[index]}
