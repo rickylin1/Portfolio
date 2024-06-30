@@ -8,7 +8,31 @@ function Home() {
   const h14 = useRef<HTMLHeadingElement>(null);
 
   const [index, setIndex] = useState(0);
+  const [isClicked, setIsClicked] = useState(false);
   const texts = ['Engineer', 'Uni Student', 'Lifter', 'Learner', 'Friend', 'Son'].map(text => `I am a ${text}`);
+
+  const greetings = [
+    { lang: 'English', text: 'Hi' },
+    { lang: 'French', text: 'Bonjour' },
+    { lang: 'Spanish', text: 'Hola' },
+    { lang: 'German', text: 'Hallo' },
+    { lang: 'Italian', text: 'Ciao' },
+    { lang: 'Russian', text: 'Привет' },
+    { lang: 'Japanese', text: 'こんにちは' },
+    { lang: 'Arabic', text: 'مرحباً' },
+    { lang: 'Chinese', text: '你好' },
+    { lang: 'Portuguese', text: 'Olá' },
+    { lang: 'Korean', text: '안녕하세요' },
+    { lang: 'Hindi', text: 'नमस्ते' },
+    { lang: 'Bengali', text: 'হ্যালো' },
+    { lang: 'Turkish', text: 'Merhaba' },
+    { lang: 'Dutch', text: 'Hallo' },
+    { lang: 'Swedish', text: 'Hej' },
+    { lang: 'Thai', text: 'สวัสดี' },
+    { lang: 'Greek', text: 'Γεια σας' },
+    { lang: 'Vietnamese', text: 'Xin chào' },
+    { lang: 'Hebrew', text: 'שלום' },
+  ];
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -40,19 +64,23 @@ function Home() {
     }
   }, []); // Run once on mount
 
-  // Typing effect logic for changing text every 2 seconds
   useEffect(() => {
     const typingInterval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % texts.length);
-    }, 2000); // Change text every 2 seconds
+      setIndex(prevIndex => (prevIndex + 1) % greetings.length);
+    }, 2000); // Change greeting every 2 seconds
 
     return () => clearInterval(typingInterval); // Cleanup on component unmount
-  }, [texts]);
+  }, []);
+
+  const handleTextClick = () => {
+    setIsClicked(!isClicked);
+  };
 
   return (
-    <div className = "pl-0 ml-0 mr-0 bg-black">
-      <main ref={heroSection} className="pt-30 container mx-auto max-width section md:flex justify-between items-center pl-0 ml-0 mr-0">
+    <div className="pl-0 ml-0 mr-0 bg-black">
+      <main ref={heroSection} className="mainHero pt-30 container mx-auto max-width section md:flex justify-between items-center pl-0 ml-0 mr-0">
         <div className="flex flex-col md:flex-row items-center md:items-start ml-0 pl-0">
+        {/* <div className="flex flex-col md:flex-row items-center md:items-start ml-0 pl-0 bg-blue-500"> */}
           
           {/* <div className="pl-0 ml-0">
             <img
@@ -63,15 +91,15 @@ function Home() {
           </div> */}
           <div>
             <h1
-              className="text-white text-2xl text-dark-heading dark:text-light-heading md:text-4xl xl:text-5xl xl:leading-tight font-bold"
+              className="text-white text-4xl text-dark-heading dark:text-light-heading md:text-6xl xl:text-7xl xl:leading-tight font-bold"
               style={{
                 textShadow: "0 0 64px white",
               }} 
             >
-              Hi, 👋<br />My Name is<br />
+              {greetings[index % greetings.length].text}<br />I'm<br />
             </h1>
             <h1
-              className="text-white text-2xl bg-clip-text bg-gradient md:text-4xl xl:text-5xl xl:leading-tight font-bold"
+              className="text-white text-4xl bg-clip-text bg-gradient md:text-6xl xl:text-7xl xl:leading-tight font-bold"
               style={{
                 textShadow: "0 0 64px white",
               }} 
@@ -79,7 +107,7 @@ function Home() {
               Ricky
             </h1> 
             <h1
-              className="text-white text-2xl bg-clip-text bg-gradient md:text-4xl xl:text-5xl xl:leading-tight font-bold"
+              className="text-white text-4xl bg-clip-text bg-gradient md:text-6xl xl:text-7xl xl:leading-tight font-bold"
               style={{
                 textShadow: "0 0 64px white",
               }} 
@@ -88,13 +116,22 @@ function Home() {
             </h1>
             <h2
               ref={h14}
-              className="text-white text-2xl text-dark-heading dark:text-light-heading md:text-4xl xl:text-5xl xl:leading-tight font-bold"
+              className="text-white text-4xl text-dark-heading dark:text-light-heading md:text-6xl xl:text-7xl xl:leading-tight font-bold"
               style={{
                 textShadow: "0 0 64px white",
-              }} // Text glow effect
+              }} 
             >
-              {texts[index]}
+              {texts[index % texts.length]}
             </h2>
+            <div 
+              onClick={handleTextClick}
+              className={`text-lg ${isClicked ? 'text-blue-500' : 'text-white'} text-dark-heading dark:text-light-heading font-bold cursor-pointer`}
+              style={{
+                textShadow: "0 0 16px white", // Adjusted for smaller text
+              }} 
+            >
+              *Click to change color
+            </div>
           </div>
         </div>
       </main>

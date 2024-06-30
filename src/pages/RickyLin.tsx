@@ -3,6 +3,10 @@ import Search from '../components/Search'
 import Header from '../components/Header.tsx'
 import Hero from '../components/Hero.tsx'
 import Main from '../components/Main.tsx'
+import AboutMe from '../components/AboutMe.tsx'
+import ProjectCards from '../components/ProjectCards.tsx'
+import Technologies from '../components/Technologies.tsx'
+import Contact from '../components/Contact.tsx'
 
 const RickyLin = () => {
   return (
@@ -14,9 +18,11 @@ const RickyLin = () => {
       <div className="flex-grow ml-80"> 
         <Main />
       </div>
-      <div>
-        this is a test
-      </div>
+      <AboutMe></AboutMe>
+      <ProjectCards></ProjectCards>
+      <Technologies></Technologies>
+      <Contact/>
+
     </>
   )
 }
