@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import * as dat from 'lil-gui';
-import Five from './5.jpg'
+import Five from '../assets/gradients/5.jpg'
 import gsap from 'gsap';
 import '../styles/Main.css'; // Make sure to adjust path if needed
 
@@ -11,7 +11,8 @@ const MyThreeComponent: React.FC = () => {
   useEffect(() => {
     // Parameters
     const parameters = {
-      materialColor: '#ffeded'
+    //   materialColor: '#ffeded'
+      materialColor: '#747272'
     };
 
     
