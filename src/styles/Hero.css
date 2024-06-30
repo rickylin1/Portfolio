@@ -2,10 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-.hero{
-    background-color: red;
-}
-
-.logo{
-    background-color: blue;
-}

@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import RLogo from '../assets/R.png';
+import Five from './5.jpg'
 import '../styles/Hero.css';
 
 function Home() {
@@ -81,15 +82,17 @@ function Home() {
           >
             I code stuff sometimes
           </h2>
-        </div>
-        <div className="mt-5 md:mt-0">
+          <div className="mt-5 md:mt-0">
           <img
             ref={myImageRef}
             className="w-1/2 md:ml-auto"
             src={RLogo}
             alt="Pavan MG"
-          />
+          /> 
+
         </div>
+        </div>
+      
        </main>
         </div>
   );

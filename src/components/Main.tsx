@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import * as dat from 'lil-gui';
+import Five from './5.jpg'
 import gsap from 'gsap';
 import '../styles/Main.css'; // Make sure to adjust path if needed
 
@@ -17,7 +18,21 @@ const MyThreeComponent: React.FC = () => {
 
     // Texture
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load('/textures/gradients/3.jpg');
+    const texturePath = Five
+
+    const onLoad = (loadedTexture: THREE.Texture) => {
+        console.log('Texture loaded successfully:', loadedTexture);
+      };
+  
+      const onProgress = (xhr: ProgressEvent<EventTarget>) => {
+        console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+      };
+  
+      const onError = (err: ErrorEvent) => {
+        console.error('Error loading texture:', err);
+      };
+
+    const texture = textureLoader.load(texturePath, onLoad, onProgress, onError);
     texture.magFilter = THREE.NearestFilter;
     texture.minFilter = THREE.NearestFilter;
 
@@ -31,18 +46,13 @@ const MyThreeComponent: React.FC = () => {
       gradientMap: texture
     });
 
-    const mesh1 = new THREE.Mesh(new THREE.TorusGeometry(1, 0.4, 16, 60), material);
-    const mesh2 = new THREE.Mesh(new THREE.ConeGeometry(1, 2, 32), material);
-    const mesh3 = new THREE.Mesh(new THREE.TorusKnotGeometry(0.8, 0.35, 100, 16), material);
+    const mesh1 = new THREE.Mesh(new THREE.TorusKnotGeometry(0.8, 0.35, 100, 16), material);
 
     mesh1.position.y = objectDistance * 0;
     mesh1.position.x = 2;
-    mesh3.position.x = 2;
-    mesh2.position.y = objectDistance * -1;
-    mesh2.position.x = -2;
-    mesh3.position.y = objectDistance * -2;
 
-    const meshs = [mesh1, mesh2, mesh3];
+
+    const meshs = [mesh1];
 
     // Particles
     const particlesCount = 2000;
@@ -65,7 +75,7 @@ const MyThreeComponent: React.FC = () => {
 
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
 
-    scene.add(mesh1, mesh2, mesh3);
+    scene.add(mesh1);
     scene.add(particles);
 
     // Light
