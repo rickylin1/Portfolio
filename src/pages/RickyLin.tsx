@@ -1,10 +1,14 @@
 import React from 'react'
 import Search from '../components/Search'
+import Header from '../components/Header.tsx'
 
 const RickyLin = () => {
   return (
     <>
-        <Search hideButtons = {true}></Search>
+        <Header/>
+        <div>
+          this is the rest
+        </div>
     </>
   )
 }

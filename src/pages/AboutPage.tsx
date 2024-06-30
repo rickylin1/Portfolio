@@ -14,7 +14,6 @@ const AboutPage = () => {
 
       <main>
           <Header/>
-        <Search hideButtons = {true}/>
         <section className="pdf-viewer-section">
           <PdfViewer pdfUrl={pdfUrl} />
         </section>
