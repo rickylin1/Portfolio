@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Search.css';
-import SearchIcon from "@mui/icons-material/Search";
 import RainbowSearchIcon from './RainbowSearch.tsx';
 import { Button } from '@mui/material';
 import { useStateValue } from '../pages/StateProvider.js';
@@ -16,10 +15,19 @@ function Search({ hideButtons = false }) {
     const [input, setInput] = useState("");
     const [redirectToResume, setRedirectToResume] = useState(false);
     const [redirectToHome, setRedirectToHome] = useState(false);
-    const [hint, setHint] = useState("try searching for Ricky Lin");
+    const [redirectToRickyLin, setRedirectToRickyLin] = useState(false);
+    const [hint, setHint] = useState("try searching for resume");
 
     useEffect(() => {
-        const hints = ["try searching for Ricky Lin", "try searching for home"];
+        if (hideButtons) {
+            console.log('hideButtons is true');
+        } else {
+            console.log('hideButtons is false');
+        }
+    }, [hideButtons]);
+
+    useEffect(() => {
+        const hints = ["try searching for Ricky Lin", "try searching for resume", "try searching for home"];
         let currentHintIndex = 0;
 
         const intervalId = setInterval(() => {
@@ -49,15 +57,22 @@ function Search({ hideButtons = false }) {
                     onChange={(e) => {
                         console.log('Input changed:', e.target.value);
                         let normalizedInput = e.target.value.toLowerCase().trim();
-                        if (normalizedInput === "ricky lin") {
+                        if (normalizedInput === "resume") {
                             setRedirectToResume(true);
                         } else {
                             setRedirectToResume(false);
                         }
+
                         if (normalizedInput === "home") {
                             setRedirectToHome(true);
                         } else {
                             setRedirectToHome(false);
+                        }
+
+                        if (normalizedInput === "ricky lin") {
+                            setRedirectToRickyLin(true);
+                        } else {
+                            setRedirectToRickyLin(false);
                         }
                         setInput(e.target.value);
                     }}
@@ -72,28 +87,36 @@ function Search({ hideButtons = false }) {
                 {hint}
             </div>
         
-
-            <div className='test search__buttons'>
-                
-                <Button className={hideButtons ? 'search__buttonsHidden' : ''} type='submit' onClick={search} variant="outlined">Google Search</Button>
-                <Button className={hideButtons ? 'search__buttonsHidden' : ''} variant="outlined">I'm Feeling Lucky</Button>
+            <div className={`search__buttons ${hideButtons ? 'search__buttonsHidden' : ''}`}>
+                <Button type='submit' onClick={search} variant="outlined">Google Search</Button>
+                <Button variant="outlined">I'm Feeling Lucky</Button>
             </div>
 
-                 <div className={`resume ${redirectToResume ? 'resume-visible' : 'resume-hidden'}`}>
+            <div className={`resume ${redirectToResume ? 'resume-visible' : 'resume-hidden'}`}>
                 {redirectToResume && (
                     <>
                         <RainbowBusinessCenterIcon />
-                        <Link to='/about'>Hidden Resume!</Link>
+                        <Link to='/about'>Resume!</Link>
                         <RainbowBusinessCenterIcon />
                     </>
                 )}
             </div>
 
-            <div className={`home ${redirectToHome ? 'home-visible' : 'home-hidden'}`}>
+            <div className={`goHome ${redirectToHome ? 'goHome-visible' : 'goHome-hidden'}`}>
                 {redirectToHome && (
                     <>
                         <RainbowBusinessCenterIcon />
                         <Link to='/'>Welcome Home!</Link>
+                        <RainbowBusinessCenterIcon />
+                    </>
+                )}
+            </div>  
+            
+            <div className={`RickyLin ${redirectToRickyLin ? 'RickyLin-visible' : 'RickyLin-hidden'}`}>
+                {redirectToRickyLin && (
+                    <>
+                        <RainbowBusinessCenterIcon />
+                        <Link to='/RickyLin'>Ricky Lin!</Link>
                         <RainbowBusinessCenterIcon />
                     </>
                 )}

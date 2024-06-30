@@ -1,5 +1,7 @@
 import React from 'react';
-import PdfViewer from '../components/PdfViewer.tsx'; // Replace with your actual path
+import PdfViewer from '../components/PdfViewer.tsx'; 
+import Search from '../components/Search'
+import Header from '../components/Header.tsx';
 
 import '../styles/AboutPage.css';
 
@@ -9,17 +11,11 @@ const AboutPage = () => {
 
   return (
     <div className="app">
-      <header className="header">
-        {/* Your header content */}
-      </header>
 
       <main>
-        {/* Your main content sections */}
-
+          <Header/>
+        <Search hideButtons = {true}/>
         <section className="pdf-viewer-section">
-          <a href = "https://www.rickylin.us/">
-            <h2>Go Back Home</h2>
-          </a>
           <PdfViewer pdfUrl={pdfUrl} />
         </section>
       </main>

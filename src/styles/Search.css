@@ -6,6 +6,20 @@
     background-color: rgb(255, 255, 255);
 }
 
+.goHome{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;  
+}
+
+.RickyLin{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;  
+}
+
 .hint{
     font-size: x-small;
     display: flex;
