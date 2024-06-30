@@ -12,7 +12,8 @@ const MyThreeComponent: React.FC = () => {
     // Parameters
     const parameters = {
     //   materialColor: '#ffeded'
-      materialColor: '#747272'
+      materialColor: '#ffebf5'
+    //   materialColor: '#747272'
     };
 
     
@@ -56,7 +57,7 @@ const MyThreeComponent: React.FC = () => {
     const meshs = [mesh1];
 
     // Particles
-    const particlesCount = 2000;
+    const particlesCount = 3000;
     const positions = new Float32Array(particlesCount * 3);
 
     for (let i = 0; i < particlesCount; i++) {

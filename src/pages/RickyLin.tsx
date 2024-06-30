@@ -7,7 +7,7 @@ import Main from '../components/Main.tsx'
 const RickyLin = () => {
   return (
     <>
-        <Header/>
+        <Header darkMode = {true} />
         <Hero></Hero>
         <Main/>
     </>
