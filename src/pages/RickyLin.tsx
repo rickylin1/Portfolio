@@ -13,16 +13,15 @@ const RickyLin = () => {
   return (
     <>
       <Header darkMode={true} />
-      <div className="flex-nowrap">
+      <div>
         <Hero />
       </div>
-      <div className="flex-grow ml-80"> 
+      <div className="ml-80"> 
         <Main />
       </div>
       <AboutMe></AboutMe>
       <ProjectCards></ProjectCards>
       <Technologies></Technologies>
-      {/* <Contact/> */}
       <Footer/>
 
     </>

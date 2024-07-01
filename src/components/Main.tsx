@@ -12,8 +12,6 @@ const MyThreeComponent: React.FC = () => {
   useEffect(() => {
     // Parameters
     const parameters = {
-    //   materialColor: '#ffeded'
-    //   materialColor: '#ffebf5'
       // materialColor: '#424242'
       materialColor: '#d4d4d4'
     //   materialColor: '#747272'
@@ -71,12 +69,12 @@ const MyThreeComponent: React.FC = () => {
 
     scene.add(mesh1);
     // scene.add(particles);
-    const particlesCount = 1000;
+    const particlesCount = 1500;
     const positions = new Float32Array(particlesCount * 3);
 
     for (let i = 0; i < particlesCount; i++) {
       positions[i * 3] = (Math.random() - 0.5) * 10;
-      positions[i * 3 + 1] = 5 - Math.random() * 10; // Adjust as needed
+      positions[i * 3 + 1] = 5 - Math.random() * 25; // Adjust as needed
       positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
     }
 
