@@ -37,10 +37,10 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
     return (
         <div className={`home__header ${darkMode ? 'dark-mode' : 'light-mode'}`}>
             <div className='home__headerLeft'>
-                <a onClick={() => scrollToRef(mainRef)} target="_blank" rel="noopener noreferrer" className="ml-4">
-                    Home
-                </a>
-                <a href="https://www.rickylin.us/RickyLin" target="_blank" rel="noopener noreferrer" className="ml-4">
+            <a href="https://www.rickylin.us" className="ml-4">
+                        Home
+                    </a>
+                <a href="https://www.rickylin.us/RickyLin" className="ml-4">
                     Contact Me
                 </a>
             </div>

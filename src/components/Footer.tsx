@@ -19,7 +19,7 @@ const Footer = () => {
         <div ref={mainRef} className='bg-white py-10'>
             <div className='flex items-center'>
                 <span className="pl-40 text-small font-bold text-black pr-2">
-                    Made with 
+                    made in react & tailwind with 
                 </span>
                 <FaRegHeart className="h-5 w-auto " style = {{color:'black', textShadow: "0 0 10px black" }}/>
 
@@ -35,7 +35,7 @@ const Footer = () => {
 
             <div className = "py-10">
                 <span className="pl-40 py-10 text-3xl font-bold text-black">
-                    Feel free to contact me at 
+                    Contact Me! 
                 </span>
                 <div className='pl-40'>
                     <span className="text-3xl font-bold text-black">

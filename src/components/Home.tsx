@@ -17,10 +17,10 @@ const Home = () => {
         <div className={`home ${darkMode ? 'dark' : 'light'}`}>
             <div className='home__header'>
                 <div className='home__headerLeft'>
-                    <a href="https://haunted-house-3exjxb45c-rickylin1s-projects.vercel.app/" target="_blank" rel="noopener noreferrer" className="ml-4">
+                    <a href="https://www.rickylin.us" className="ml-4">
                         Home
                     </a>
-                    <a href="https://galaxy-generator-m5wfwkcmo-rickylin1s-projects.vercel.app/" target="_blank" rel="noopener noreferrer" className="ml-4">
+                    <a href="https://www.rickylin.us/RickyLin" className="ml-4">
                         Contact Me
                     </a>
                     
