@@ -6,6 +6,7 @@ import RainbowMicIcon from './RainbowMic.tsx';
 import RainbowCameraAltIcon from './RainbowCamera.tsx';
 import RainbowBusinessCenterIcon from './RainbowBusiness.tsx';
 import RainbowLightBulb from './RainbowLightbulb.tsx';
+import '../styles/Header.css'
 
 const Header = ({ darkMode = false, hideButtons = true }) => {
     const [input, setInput] = useState("");
