@@ -34,7 +34,7 @@ function Search({ hideButtons = false }) {
         const intervalId = setInterval(() => {
             currentHintIndex = (currentHintIndex + 1) % hints.length;
             setHint(hints[currentHintIndex]);
-        }, 3000);
+        }, 1000);
 
         return () => clearInterval(intervalId); // Cleanup interval on component unmount
     }, []);

@@ -12,20 +12,20 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
     const [redirectToResume, setRedirectToResume] = useState(false);
     const [redirectToHome, setRedirectToHome] = useState(false);
     const [redirectToRickyLin, setRedirectToRickyLin] = useState(false);
-    const [hint, setHint] = useState("try searching for resume");
+    const [hint, setHint] = useState("try searching for Resume");
 
-    if(darkMode){
-        console.log('dark')
-    }
+    // if(darkMode){
+    //     console.log('dark')
+    // }
 
     useEffect(() => {
-        const hints = ["try searching for Ricky Lin", "try searching for resume", "try searching for home"];
+        const hints = ["try searching for Ricky Lin", "try searching for Resume", "try searching for Home"];
         let currentHintIndex = 0;
 
         const intervalId = setInterval(() => {
             currentHintIndex = (currentHintIndex + 1) % hints.length;
             setHint(hints[currentHintIndex]);
-        }, 3000);
+        }, 1000);
 
         return () => clearInterval(intervalId); // Cleanup interval on component unmount
     }, []);

@@ -4,6 +4,7 @@ import * as dat from 'lil-gui';
 import Five from '../assets/gradients/5.jpg'
 import gsap from 'gsap';
 import '../styles/Main.css'; // Make sure to adjust path if needed
+import snowflakeTexture from '../assets/snowflake1.png'
 
 const MyThreeComponent: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -47,27 +48,58 @@ const MyThreeComponent: React.FC = () => {
     const meshs = [mesh1];
 
     // Particles
+    // const particlesCount = 3000;
+    // const positions = new Float32Array(particlesCount * 3);
+
+    // for (let i = 0; i < particlesCount; i++) {
+    //   positions[i * 3] = (Math.random() - 0.5) * 10;
+    //   positions[i * 3 + 1] = 5 + objectDistance - Math.random() * objectDistance * 8;
+    //   positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
+    // }
+
+    // const particlesGeometry = new THREE.BufferGeometry();
+    // particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    // const particlesMaterial = new THREE.PointsMaterial({
+    //   color: parameters.materialColor,
+    //   sizeAttenuation: true,
+    //   size: 0.05
+    // });
+
+    // const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+
+    scene.add(mesh1);
+    // scene.add(particles);
     const particlesCount = 3000;
     const positions = new Float32Array(particlesCount * 3);
 
     for (let i = 0; i < particlesCount; i++) {
       positions[i * 3] = (Math.random() - 0.5) * 10;
-      positions[i * 3 + 1] = 5 + objectDistance - Math.random() * objectDistance * 8;
+      positions[i * 3 + 1] = 5 - Math.random() * 10; // Adjust as needed
       positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
     }
 
     const particlesGeometry = new THREE.BufferGeometry();
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
+    // Texture
+    const snowflaketexture = textureLoader.load(snowflakeTexture);
+    texture.magFilter = THREE.NearestFilter;
+    texture.minFilter = THREE.NearestFilter;
+
     const particlesMaterial = new THREE.PointsMaterial({
-      color: parameters.materialColor,
-      sizeAttenuation: true,
-      size: 0.05
+        color: '#ffffff',
+        sizeAttenuation: true,
+        size: 0.1,
+        map: texture, // Apply snowflake texture here
+        transparent: true, // Enable transparency
+        alphaTest: 0.5, // Adjust alpha threshold as needed
+        depthWrite: false, // Disable writing to depth buffer
+        alphaMap: texture // Use the same texture as alpha map
+      
     });
 
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-
-    scene.add(mesh1);
     scene.add(particles);
 
     // Light
@@ -114,6 +146,7 @@ const MyThreeComponent: React.FC = () => {
         colorPickerAdded = true; 
         }
     } else {
+
         gui.domElement.style.display = 'block';
     }
     });
