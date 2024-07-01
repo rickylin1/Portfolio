@@ -30,13 +30,17 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
         return () => clearInterval(intervalId); // Cleanup interval on component unmount
     }, []);
 
+    const scrollToRef = (ref) => {
+        ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+
     return (
         <div className={`home__header ${darkMode ? 'dark-mode' : 'light-mode'}`}>
             <div className='home__headerLeft'>
-                <a href="https://haunted-house-3exjxb45c-rickylin1s-projects.vercel.app/" target="_blank" rel="noopener noreferrer" className="ml-4">
+                <a onClick={() => scrollToRef(mainRef)} target="_blank" rel="noopener noreferrer" className="ml-4">
                     Home
                 </a>
-                <a href="https://galaxy-generator-m5wfwkcmo-rickylin1s-projects.vercel.app/" target="_blank" rel="noopener noreferrer" className="ml-4">
+                <a href="https://www.rickylin.us/RickyLin" target="_blank" rel="noopener noreferrer" className="ml-4">
                     Contact Me
                 </a>
             </div>

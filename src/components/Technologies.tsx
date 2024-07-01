@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { 
     FaReact, FaNode, FaPython, FaHtml5, FaCss3Alt, FaJs, FaJava, FaSwift, 
     FaDocker, FaAws
@@ -44,7 +44,7 @@ const Technologies = () => {
     ];
 
     return (
-        <div className="bg-white p-8 text-center">
+        <div className="bg-white p-8 text-center py-20">
             <h1 className="text-black text-5xl font-bold mb-8 relative">
                 <span className="glow-text" style={{ textShadow: "0 0 5px #ccc, 0 0 10px #ccc, 0 0 15px #ccc, 0 0 20px #ccc, 0 0 25px #ccc, 0 0 30px #ccc, 0 0 35px #ccc, 0 0 40px #ccc" }}>Technologies</span>
             </h1>
@@ -57,6 +57,7 @@ const Technologies = () => {
                     </div>
                 ))}
             </div>
+
         </div>
     );
 }

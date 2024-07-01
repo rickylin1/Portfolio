@@ -8,14 +8,14 @@ import { HiComputerDesktop } from "react-icons/hi2";
 const AboutMe = () => {
   return (
     <main className="pl-40 flex">
-      <div className="bg-white p-8">
+      <div className="bg-white p-8 py-44">
         <h1 className="text-black text-4xl md:text-6xl xl:text-7xl xl:leading-tight font-bold"
-            style={{ textShadow: "0 0 100px black" }}>
+            style={{ textShadow: "0 0 100px black", whiteSpace: "nowrap" }}>
           <IoBuild className="inline-block text-5xl mr-4" /> About Me
         </h1>
 
         <p className="text-4xl font-bold mb-4 pt-">
-          Always excited to <span className="text-white" style={{ textShadow: "0 0 10px gray" }}>build!</span>
+          Always excited to <span className="text-white" style={{ textShadow: "0 0 100px black" }}>build!</span>
         </p>
 
         <div className="py-5">

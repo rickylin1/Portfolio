@@ -211,7 +211,7 @@ const ProjectCards = () => {
   };
 
   return (
-    <div className="bg-black">
+    <div className="bg-black pb-40">
       <div className="py-20 text-5xl text-center text-white font-bold">
         <span className="text-white" style={{ textShadow: "0 0 10px white" }}>
           Projects
