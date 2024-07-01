@@ -4,7 +4,7 @@ import * as dat from 'lil-gui';
 import Five from '../assets/gradients/5.jpg'
 import gsap from 'gsap';
 import '../styles/Main.css'; // Make sure to adjust path if needed
-import snowflakeTexture from '../assets/snowflake1.png'
+import snowflakeTexture from '../assets/snowflake2.png'
 
 const MyThreeComponent: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -14,7 +14,8 @@ const MyThreeComponent: React.FC = () => {
     const parameters = {
     //   materialColor: '#ffeded'
     //   materialColor: '#ffebf5'
-      materialColor: '#424242'
+      // materialColor: '#424242'
+      materialColor: '#d4d4d4'
     //   materialColor: '#747272'
     };
 
@@ -70,7 +71,7 @@ const MyThreeComponent: React.FC = () => {
 
     scene.add(mesh1);
     // scene.add(particles);
-    const particlesCount = 3000;
+    const particlesCount = 1000;
     const positions = new Float32Array(particlesCount * 3);
 
     for (let i = 0; i < particlesCount; i++) {
@@ -164,12 +165,12 @@ const MyThreeComponent: React.FC = () => {
       if (newSection !== currentsection) {
         currentsection = newSection;
 
-        gsap.to(meshs[currentsection].rotation, {
-          duration: 1.5,
-          ease: 'power2.inOut',
-          x: '+=6',
-          y: '+=3'
-        });
+        // gsap.to(meshs[currentsection].rotation, {
+        //   duration: 1.5,
+        //   ease: 'power2.inOut',
+        //   x: '+=6',
+        //   y: '+=3'
+        // });
       }
     });
 

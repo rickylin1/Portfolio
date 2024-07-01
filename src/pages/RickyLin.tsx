@@ -7,6 +7,7 @@ import AboutMe from '../components/AboutMe.tsx'
 import ProjectCards from '../components/ProjectCards.tsx'
 import Technologies from '../components/Technologies.tsx'
 import Contact from '../components/Contact.tsx'
+import Footer from '../components/Footer.tsx'
 
 const RickyLin = () => {
   return (
@@ -21,7 +22,8 @@ const RickyLin = () => {
       <AboutMe></AboutMe>
       <ProjectCards></ProjectCards>
       <Technologies></Technologies>
-      <Contact/>
+      {/* <Contact/> */}
+      <Footer/>
 
     </>
   )
