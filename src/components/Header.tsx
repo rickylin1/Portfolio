@@ -35,7 +35,7 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
       };
 
     return (
-        <div className={`home__header ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+            <div className="home__header bg-white m-5" style={{ padding: '10px', borderRadius: '30px' }}>
             <div className='home__headerLeft'>
             <a href="https://www.rickylin.us" className="ml-4">
                         Home

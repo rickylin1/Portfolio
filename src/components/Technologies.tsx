@@ -45,8 +45,8 @@ const Technologies = () => {
 
     return (
         <div className="bg-white p-8 text-center py-20">
-            <h1 className="text-black text-5xl font-bold mb-8 relative">
-                <span className="glow-text" style={{ textShadow: "0 0 5px #ccc, 0 0 10px #ccc, 0 0 15px #ccc, 0 0 20px #ccc, 0 0 25px #ccc, 0 0 30px #ccc, 0 0 35px #ccc, 0 0 40px #ccc" }}>Technologies</span>
+            <h1 className="text-black text-5xl font-bold mb-8 relative pb-8">
+                <span className="glow-text">Technologies</span>
             </h1>
 
             <div className="grid grid-cols-5 gap-8">
