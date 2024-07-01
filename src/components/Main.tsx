@@ -13,8 +13,10 @@ const MyThreeComponent: React.FC = () => {
     // Parameters
     const parameters = {
       // materialColor: '#424242'
-      materialColor: '#d4d4d4'
+      // materialColor: '#d4d4d4',
     //   materialColor: '#747272'
+      //  materialColor:'#2eb9f5'
+       materialColor:'#eeb4d6'
     };
 
     
@@ -202,8 +204,10 @@ const MyThreeComponent: React.FC = () => {
 
       if (elapsedTime % 10 < 5) {
         particles.position.y -= 0.01;
-      } else {
-        particles.position.y += 0.01;
+      } 
+      
+      else {
+        particles.position.y += 0.02;
       }
 
       renderer.render(scene, camera);

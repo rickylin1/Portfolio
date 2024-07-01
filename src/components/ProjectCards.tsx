@@ -2,6 +2,8 @@ import React from "react";
 import MosaicImage from "../assets/MosaicApp.png";
 import ChessImage from "../assets/ChessImage.png";
 import ScraperImage from "../assets/scraper.jpeg";
+import Popup from './Popup.tsx'
+
 import {
   FaReact,
   FaNode,
@@ -215,51 +217,6 @@ const ProjectCards = () => {
       return iconComponent;
     });
   };
-
-  // return (
-  //   <div className="bg-black pb-40">
-  //     <div className="py-20 text-5xl text-center text-white font-bold">
-  //       <span className="text-white">
-  //         Projects
-  //       </span>
-  //     </div>
-
-  //     <div className="text-large text-center text-white font-bold">
-  //       <span className="text-white">
-  //         Click to learn more!
-  //       </span>
-  //     </div>
-
-  //     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-10 py-6">
-  //       {projects.map((project, index) => (
-  //         <a
-  //           href={project.githubUrl}
-  //           key={index}
-  //           target="_blank"
-  //           rel="noopener noreferrer"
-  //         >
-  //           <div
-  //             className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl cursor-pointer"
-  //             style={{ maxWidth: "60%", minHeight:"500px", margin: "auto" }}
-  //           >
-  //             <img
-  //               src={project.imageUrl}
-  //               alt={project.title}
-  //               className="mx-auto"
-  //               style={{width: "600px", height: "250px" }}
-  //             />
-  //             <p className="text-center text-xl font-bold">{project.title}</p>
-  //             <p className="text-center text-gray-600">{project.description}</p>
-  //             <div className="text-center mt-2">
-  //               {mapTechnologiesToIcons(project.technologies)}
-  //             </div>
-  //           </div>
-  //         </a>
-  //       ))}
-  //     </div>
-  //   </div>
-  // );
-
   return (
     <div className="bg-black pb-40">
       <div className="py-20 text-5xl text-center text-white font-bold">
@@ -277,6 +234,7 @@ const ProjectCards = () => {
             key={index}
             target="_blank"
             rel="noopener noreferrer"
+            className = "z-40"
           >
             <div
               className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl cursor-pointer flex flex-col justify-between"
@@ -286,7 +244,7 @@ const ProjectCards = () => {
                 src={project.imageUrl}
                 alt={project.title}
                 className="mx-auto"
-                style={{ width: "100%", height: "250px", objectFit: "cover" }}
+                style={{ width: "100%", height: "300px", objectFit: "cover" }}
               />
               <p className="text-center text-xl font-bold">{project.title}</p>
               <p
@@ -306,6 +264,7 @@ const ProjectCards = () => {
           </a>
         ))}
       </div>
+      {/* <Popup/> */}
     </div>
   );
 };

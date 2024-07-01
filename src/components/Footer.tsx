@@ -23,7 +23,7 @@ const Footer = () => {
                 </span>
                 <FaRegHeart className="h-5 w-auto " style = {{color:'black', textShadow: "0 0 10px black" }}/>
 
-                <div className='flex-grow flex justify-end pr-40'>
+                <div className='flex-grow flex justify-end pr-40 z-50'>
                     <a href="https://github.com/rickylin1" target="_blank" rel="noopener noreferrer">
                         <FaGithub className="h-10 w-auto" style = {{color:'black'}}/>
                     </a>
