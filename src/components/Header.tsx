@@ -11,9 +11,6 @@ import { IoMdTime } from "react-icons/io";
 
 const Header = ({ darkMode = false, hideButtons = true }) => {
     const [input, setInput] = useState("");
-    const [redirectToResume, setRedirectToResume] = useState(false);
-    const [redirectToHome, setRedirectToHome] = useState(false);
-    const [redirectToRickyLin, setRedirectToRickyLin] = useState(false);
     const [hint, setHint] = useState("try searching for Resume");
     const [showHistory, setShowHistory] = useState(false); // State to manage history visibility
 
@@ -64,23 +61,14 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
     const handleSearchHistoryClick = (item) => {
         setInput(item);
         setShowHistory(false);
-        // Logic to redirect based on search history item
-        if (item.toLowerCase() === "resume") {
-            setRedirectToResume(true);
-        } else {
-            setRedirectToResume(false);
+        if(item == 'Resume'){
+            window.location.href = "https://www.rickylin.us/about"
         }
-
-        if (item.toLowerCase() === "home") {
-            setRedirectToHome(true);
-        } else {
-            setRedirectToHome(false);
+        else if(item == "Home"){
+            window.location.href = "https://www.rickylin.us/"
         }
-
-        if (item.toLowerCase() === "ricky lin") {
-            setRedirectToRickyLin(true);
-        } else {
-            setRedirectToRickyLin(false);
+        else{
+            window.location.href = "https://www.rickylin.us/RickyLin"
         }
     };
 
@@ -98,9 +86,6 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
                         value={input}
                         onChange={(e) => {
                             let normalizedInput = e.target.value.toLowerCase().trim();
-                            setRedirectToResume(normalizedInput === "resume");
-                            setRedirectToHome(normalizedInput === "home");
-                            setRedirectToRickyLin(normalizedInput === "ricky lin");
                             setInput(e.target.value);
                         }}
                         onKeyPress={handleKeyPress} // Handle Enter key press
@@ -141,35 +126,6 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
                     <Button variant="outlined">I'm Feeling Lucky</Button>
                 </div>
 
-                <div className={`resume ${redirectToResume ? 'resume-visible' : 'resume-hidden'}`}>
-                    {redirectToResume && (
-                        <>
-                            <RainbowBusinessCenterIcon />
-                            <Link to='/about'>Resume!</Link>
-                            <RainbowBusinessCenterIcon />
-                        </>
-                    )}
-                </div>
-
-                <div className={`goHome ${redirectToHome ? 'goHome-visible' : 'goHome-hidden'}`}>
-                    {redirectToHome && (
-                        <>
-                            <RainbowBusinessCenterIcon />
-                            <Link to='/'>Welcome Home!</Link>
-                            <RainbowBusinessCenterIcon />
-                        </>
-                    )}
-                </div>
-
-                <div className={`RickyLin ${redirectToRickyLin ? 'RickyLin-visible' : 'RickyLin-hidden'}`}>
-                    {redirectToRickyLin && (
-                        <>
-                            <RainbowBusinessCenterIcon />
-                            <Link to='/RickyLin'>Ricky Lin!</Link>
-                            <RainbowBusinessCenterIcon />
-                        </>
-                    )}
-                </div>
             </form>
 
             <div className='home__headerRight'>

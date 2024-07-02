@@ -14,9 +14,6 @@ import { IoMdTime } from "react-icons/io";
 function Search({ hideButtons = false }) {
     const [{}, dispatch] = useStateValue();
     const [input, setInput] = useState("");
-    const [redirectToResume, setRedirectToResume] = useState(false);
-    const [redirectToHome, setRedirectToHome] = useState(false);
-    const [redirectToRickyLin, setRedirectToRickyLin] = useState(false);
     const [hint, setHint] = useState("try searching for Resume");
     const [showHistory, setShowHistory] = useState(false);
 
@@ -52,24 +49,16 @@ function Search({ hideButtons = false }) {
 
     const handleSearchHistoryClick = (item) => {
         setInput(item);
+        if(item == 'Resume'){
+            window.location.href = "https://www.rickylin.us/about"
+        }
+        else if(item == "Home"){
+            window.location.href = "https://www.rickylin.us/"
+        }
+        else{
+            window.location.href = "https://www.rickylin.us/RickyLin"
+        }
         setShowHistory(false);
-        if (item.toLowerCase() === "resume") {
-            setRedirectToResume(true);
-        } else {
-            setRedirectToResume(false);
-        }
-
-        if (item.toLowerCase() === "home") {
-            setRedirectToHome(true);
-        } else {
-            setRedirectToHome(false);
-        }
-
-        if (item.toLowerCase() === "ricky lin") {
-            setRedirectToRickyLin(true);
-        } else {
-            setRedirectToRickyLin(false);
-        }
     };
 
     const search = (e) => {
@@ -80,13 +69,13 @@ function Search({ hideButtons = false }) {
             setShowHistory(true);
         }
         else if (searchresult === 'home') {
-            window.location.href = "https://www.rickylin.us/";
+            // window.location.href = "https://www.rickylin.us/";
             console.log('go home');
         } else if (searchresult === 'resume') {
-            window.location.href = "https://www.rickylin.us/about";
+            // window.location.href = "https://www.rickylin.us/about";
             console.log('go resume');
         } else {
-            window.location.href = "https://www.rickylin.us/RickyLin";
+            // window.location.href = "https://www.rickylin.us/RickyLin";
         }
     };
 
@@ -100,23 +89,6 @@ function Search({ hideButtons = false }) {
                         onChange={(e) => {
                             console.log('Input changed:', e.target.value);
                             let normalizedInput = e.target.value.toLowerCase().trim();
-                            if (normalizedInput === "resume") {
-                                setRedirectToResume(true);
-                            } else {
-                                setRedirectToResume(false);
-                            }
-
-                            if (normalizedInput === "home") {
-                                setRedirectToHome(true);
-                            } else {
-                                setRedirectToHome(false);
-                            }
-
-                            if (normalizedInput === "ricky lin") {
-                                setRedirectToRickyLin(true);
-                            } else {
-                                setRedirectToRickyLin(false);
-                            }
                             setInput(e.target.value);
                         }}
                         onClick={handleClick}
@@ -156,36 +128,6 @@ function Search({ hideButtons = false }) {
             <div className={`search__buttons ${hideButtons ? 'search__buttonsHidden' : ''}`}>
                 <Button type='submit' variant="outlined">Google Search</Button>
                 <Button variant="outlined">I'm Feeling Lucky</Button>
-            </div>
-
-            <div className={`resume ${redirectToResume ? 'resume-visible' : 'resume-hidden'}`}>
-                {redirectToResume && (
-                    <>
-                        <RainbowBusinessCenterIcon />
-                        <Link to='/about'>Resume!</Link>
-                        <RainbowBusinessCenterIcon />
-                    </>
-                )}
-            </div>
-
-            <div className={`goHome ${redirectToHome ? 'goHome-visible' : 'goHome-hidden'}`}>
-                {redirectToHome && (
-                    <>
-                        <RainbowBusinessCenterIcon />
-                        <Link to='/'>Welcome Home!</Link>
-                        <RainbowBusinessCenterIcon />
-                    </>
-                )}
-            </div>
-
-            <div className={`RickyLin ${redirectToRickyLin ? 'RickyLin-visible' : 'RickyLin-hidden'}`}>
-                {redirectToRickyLin && (
-                    <>
-                        <RainbowBusinessCenterIcon />
-                        <Link to='/RickyLin'>Ricky Lin!</Link>
-                        <RainbowBusinessCenterIcon />
-                    </>
-                )}
             </div>
         </form>
     );

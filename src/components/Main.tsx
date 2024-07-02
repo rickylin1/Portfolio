@@ -12,11 +12,7 @@ const MyThreeComponent: React.FC = () => {
   useEffect(() => {
     // Parameters
     const parameters = {
-      // materialColor: '#424242'
-      // materialColor: '#d4d4d4',
-    //   materialColor: '#747272'
-      //  materialColor:'#2eb9f5'
-       materialColor:'#eeb4d6'
+       materialColor:'#b0b0b0'
     };
 
     
