@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../styles/Home.css';
 import { NavLink } from 'react-router-dom';
 import AppsIcon from '@mui/icons-material/Apps';
-import Search from '../components/Search';
+import Search from './Search';
 import RLogo from '../assets/R.png';
 import Google from '../assets/Google.png';
 
@@ -23,13 +23,7 @@ const Home = () => {
                     <a href="https://www.rickylin.us/about" className="ml-4">
                         Resume
                     </a>
-                    
-                    {/* <a href="https://haunted-house-3exjxb45c-rickylin1s-projects.vercel.app/" target="_blank" rel="noopener noreferrer" className="ml-4">
-                        Spooky House
-                    </a>
-                    <a href="https://galaxy-generator-m5wfwkcmo-rickylin1s-projects.vercel.app/" target="_blank" rel="noopener noreferrer" className="ml-4">
-                        Galaxy Generator
-                    </a> */}
+
                 </div>
 
                 <div className='home__headerRight'>

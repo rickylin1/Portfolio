@@ -76,7 +76,10 @@ function Search({ hideButtons = false }) {
         e.preventDefault();
         console.log('You hit the Google Search button : ', input);
         let searchresult = input.toLowerCase().trim();
-        if (searchresult === 'home') {
+        if(searchresult == ''){
+            setShowHistory(true);
+        }
+        else if (searchresult === 'home') {
             window.location.href = "https://www.rickylin.us/";
             console.log('go home');
         } else if (searchresult === 'resume') {
