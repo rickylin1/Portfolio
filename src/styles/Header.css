@@ -27,3 +27,30 @@
 .search{
     z-index:1000;
 }
+
+
+.search{
+    position: relative;
+  }
+  
+  .search__history2 {
+    position: absolute;
+    top: 100%; /* Position right under the search input */
+    left: 0;
+    width: 100%; /* Full width of the parent */
+    background-color: #fff; /* Background color of the dropdown */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Box shadow for dropdown */
+    z-index: 10; /* Ensure it's above other content */
+    max-height: 200px; /* Optional: Limit maximum height for scroll */
+    overflow-y: auto; /* Optional: Enable vertical scrolling */
+  }
+  
+  .search__historyItem2 {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Optional: Smooth hover effect */
+  }
+  
+  .search__historyItem2:hover {
+    background-color: #f0f0f0; /* Optional: Hover background color */
+  }

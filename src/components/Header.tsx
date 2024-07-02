@@ -6,7 +6,8 @@ import RainbowMicIcon from './RainbowMic.tsx';
 import RainbowCameraAltIcon from './RainbowCamera.tsx';
 import RainbowBusinessCenterIcon from './RainbowBusiness.tsx';
 import RainbowLightBulb from './RainbowLightbulb.tsx';
-import '../styles/Header.css'
+import '../styles/Header.css';
+import { IoMdTime } from "react-icons/io";
 
 const Header = ({ darkMode = false, hideButtons = true }) => {
     const [input, setInput] = useState("");
@@ -14,6 +15,9 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
     const [redirectToHome, setRedirectToHome] = useState(false);
     const [redirectToRickyLin, setRedirectToRickyLin] = useState(false);
     const [hint, setHint] = useState("try searching for Resume");
+    const [showHistory, setShowHistory] = useState(false); // State to manage history visibility
+
+    const searchHistory = ["Ricky Lin", "Resume", "Home"]; // Your search history array
 
     useEffect(() => {
         const hints = ["try searching for Ricky Lin", "try searching for Resume", "try searching for Home"];
@@ -49,6 +53,37 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
         }
     };
 
+    const handleClick = () => {
+        setShowHistory(true);
+    };
+
+    const handleBlur = () => {
+        setTimeout(() => setShowHistory(false), 100); // Delay to allow click on history items
+    };
+
+    const handleSearchHistoryClick = (item) => {
+        setInput(item);
+        setShowHistory(false);
+        // Logic to redirect based on search history item
+        if (item.toLowerCase() === "resume") {
+            setRedirectToResume(true);
+        } else {
+            setRedirectToResume(false);
+        }
+
+        if (item.toLowerCase() === "home") {
+            setRedirectToHome(true);
+        } else {
+            setRedirectToHome(false);
+        }
+
+        if (item.toLowerCase() === "ricky lin") {
+            setRedirectToRickyLin(true);
+        } else {
+            setRedirectToRickyLin(false);
+        }
+    };
+
     return (
         <div className="home__header bg-white m-5" style={{ padding: '10px', borderRadius: '30px' }}>
             <div className='home__headerLeft'>
@@ -69,11 +104,32 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
                             setInput(e.target.value);
                         }}
                         onKeyPress={handleKeyPress} // Handle Enter key press
+                        onClick={handleClick} // Show history on click
+                        onBlur={handleBlur} // Hide history on blur
                     />
                     <RainbowMicIcon />
                     <div className='icons'></div>
                     <RainbowCameraAltIcon />
                 </div>
+
+                {showHistory && (
+                    <div className="search__history2 mt-0 rounded-xl">
+                        {searchHistory.map((item, index) => (
+                            <div
+                                key={index}
+                                className="search__historyItem2"
+                                onMouseDown={() => handleSearchHistoryClick(item)}
+                                style={{
+                                    maxWidth: '556px',
+                                    margin: '0 auto',
+                                    color: 'rgb(26, 13, 171)'
+                                }}
+                            >
+                                <span className='flex items-center gap-3'> <IoMdTime/> {item}</span>
+                            </div>
+                        ))}
+                    </div>
+                )}
 
                 <div className="hint">
                     <RainbowLightBulb />

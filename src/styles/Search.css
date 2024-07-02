@@ -81,9 +81,6 @@
     border: none;
 }
 
-.search__inputIcon {
-    color: gray;
-}
 
 .icons {
     display: flex;
@@ -118,3 +115,36 @@
     display: none;
 }
 
+
+.search__inputContainer {
+    position: relative;
+    width: 100%;
+}
+
+
+.search__history {
+    position: absolute;
+    background-color: rgb(254, 6, 6);
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 556px; 
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1000;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.search__historyItem {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.search__historyItem:hover {
+    background-color: #f0f0f0;
+}

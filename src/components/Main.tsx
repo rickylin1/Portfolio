@@ -101,7 +101,7 @@ const MyThreeComponent: React.FC = () => {
     });
 
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particles);
+    // scene.add(particles);
 
     // Light
     const directionalLight = new THREE.DirectionalLight('#ffffff', 1);
