@@ -12,7 +12,7 @@ function Home() {
   const [isClicked, setIsClicked] = useState(false);
   const [showTyping, setShowTyping] = useState(false);
 
-  const texts = ['Engineer', 'Athlete','Uni Student',  'Problem Solver', 'Gym Rat', 'Explorer', 'Developer','Friend', 'Builder', 'Son', 'Creator', ].map(text => `I am a ${text}`);
+  const texts = ['Engineer.', '<Athlete>','print(Uni Student)',  '#Problem Solver', '.Gym Rat',  '<Developer/>','def Friend():', 'void Creator()', ].map(text => `I am a ${text}`);
 
   const greetings = [
     'Hi', 'Bonjour', 'Hola', 'Hallo', 'Ciao', 'Привет', 'こんにちは', 'مرحباً', '你好', 'Olá', '안녕하세요', 'नमस्ते', 'হ্যালো', 'Merhaba', 'Hallo', 'Hej', 'สวัสดี', 'Γεια σας', 'Xin chào', 'שלום'

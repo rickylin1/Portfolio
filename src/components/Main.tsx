@@ -132,21 +132,21 @@ const MyThreeComponent: React.FC = () => {
 
     let colorPickerAdded = false;
 
-    document.addEventListener('click', () => {
-    if (gui.domElement.style.display === 'none') {
-        gui.show();
-        if (!colorPickerAdded) {
-        gui.addColor(parameters, 'materialColor').onChange(() => {
-            material.color.set(parameters.materialColor);
-            particlesMaterial.color.set(parameters.materialColor);
-        });
-        colorPickerAdded = true; 
-        }
-    } else {
+    // document.addEventListener('click', () => {
+    // if (gui.domElement.style.display === 'none') {
+    //     gui.show();
+    //     if (!colorPickerAdded) {
+    //     gui.addColor(parameters, 'materialColor').onChange(() => {
+    //         material.color.set(parameters.materialColor);
+    //         particlesMaterial.color.set(parameters.materialColor);
+    //     });
+    //     colorPickerAdded = true; 
+    //     }
+    // } else {
 
-        gui.domElement.style.display = 'block';
-    }
-    });
+    //     gui.domElement.style.display = 'block';
+    // }
+    // });
 
      
 

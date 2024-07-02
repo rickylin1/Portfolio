@@ -8,13 +8,17 @@ import RainbowBusinessCenterIcon from './RainbowBusiness.tsx';
 import RainbowLightBulb from './RainbowLightbulb.tsx';
 import '../styles/Header.css';
 import { IoMdTime } from "react-icons/io";
+import { CiMenuBurger as WhiteThreeStackIcon } from "react-icons/ci";
+import gsap from 'gsap'
 
-const Header = ({ darkMode = false, hideButtons = true }) => {
+const Header = ({ darkMode = false, hideButtons = true}) => {
     const [input, setInput] = useState("");
     const [hint, setHint] = useState("try searching for Resume");
     const [showHistory, setShowHistory] = useState(false); // State to manage history visibility
+    const [toggleShow, setToggleShow] = useState(false)
 
     const searchHistory = ["Ricky Lin", "Resume", "Home"]; // Your search history array
+    
 
     useEffect(() => {
         const hints = ["try searching for Ricky Lin", "try searching for Resume", "try searching for Home"];
@@ -61,16 +65,25 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
     const handleSearchHistoryClick = (item) => {
         setInput(item);
         setShowHistory(false);
-        if(item == 'Resume'){
+        if (item === 'Resume') {
             window.location.href = "https://www.rickylin.us/about"
-        }
-        else if(item == "Home"){
+        } else if (item === "Home") {
             window.location.href = "https://www.rickylin.us/"
-        }
-        else{
+        } else {
             window.location.href = "https://www.rickylin.us/RickyLin"
         }
     };
+
+    // Conditional rendering based on toggleShow prop
+    if (!toggleShow) {
+        return (
+            <div className="flex items-center justify-end" style={{ position: 'relative', zIndex: 9999 }}>
+                <div className="white-three-stack-icon text-white p-3 rounded-full cursor-pointer ml-auto" onClick={() => setToggleShow(true)}>
+                    <WhiteThreeStackIcon size={60} />
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="home__header bg-white m-5" style={{ padding: '10px', borderRadius: '30px' }}>
@@ -110,7 +123,7 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
                                     color: 'rgb(26, 13, 171)'
                                 }}
                             >
-                                <span className='flex items-center gap-3'> <IoMdTime/> {item}</span>
+                                <span className='flex items-center gap-3'> <IoMdTime /> {item}</span>
                             </div>
                         ))}
                     </div>
@@ -135,6 +148,13 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
                 <a href="https://github.com/rickylin1" target="_blank" rel="noopener noreferrer" className={`ml-4 ${darkMode ? 'white-text' : ''}`}>
                     Github
                 </a>
+
+                <div className="flex items-center justify-end" style={{ position: 'relative', zIndex: 9999 }}>
+                <div className="white-three-stack-icon text-black p-3 rounded-full cursor-pointer ml-auto" onClick={() => setToggleShow(false)}>
+                    <WhiteThreeStackIcon size={60} />
+                </div>
+            </div>
+
             </div>
         </div>
     );
