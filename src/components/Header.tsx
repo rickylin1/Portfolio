@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import { Button } from '@mui/material';
 import { Link } from "react-router-dom";
 import RainbowSearchIcon from './RainbowSearch.tsx';
@@ -10,6 +10,7 @@ import '../styles/Header.css';
 import { IoMdTime } from "react-icons/io";
 import { CiMenuBurger as WhiteThreeStackIcon } from "react-icons/ci";
 import gsap from 'gsap'
+import RLogo from '../assets/R.png'
 
 const Header = ({ darkMode = false, hideButtons = true}) => {
     const [input, setInput] = useState("");
@@ -18,6 +19,22 @@ const Header = ({ darkMode = false, hideButtons = true}) => {
     const [toggleShow, setToggleShow] = useState(false)
 
     const searchHistory = ["Ricky Lin", "Resume", "Home"]; // Your search history array
+
+    const headerRef = useRef(null);
+
+    useEffect(() => {
+        // Ensure headerRef is available before animating
+        console.log('enter effect')
+        if (headerRef.current) {
+            // Example animation using gsap
+            gsap.from(headerRef.current, {
+                opacity: 0,
+                y: -50,
+                duration: 1,
+                ease: 'power3.out',
+            });
+        }
+    }, []);
     
 
     useEffect(() => {
@@ -77,21 +94,35 @@ const Header = ({ darkMode = false, hideButtons = true}) => {
     // Conditional rendering based on toggleShow prop
     if (!toggleShow) {
         return (
-            <div className="flex items-center justify-end" style={{ position: 'relative', zIndex: 9999 }}>
-                <div className="white-three-stack-icon text-white p-3 rounded-full cursor-pointer ml-auto" onClick={() => setToggleShow(true)}>
-                    <WhiteThreeStackIcon size={60} />
+            <div className = 'flex'>
+                <div className="mr-auto" style={{ position: 'relative', zIndex: 9999 }}>
+                    <div className="white-three-stack-icon text-white p-5 rounded-full cursor-pointer ml-auto" onClick={() => setToggleShow(true)}>
+                        <WhiteThreeStackIcon size={60} />
+                    </div>
+                </div>
+
+                <div>
+                    <div className="align-middle white-three-stack-icon text-white p-5 rounded-full cursor-pointer ml-auto" onClick={() => setToggleShow(true)}>
+                    <img className="pfp rounded-full mb-3" src={RLogo} alt="profile" />
+                            <span className="text-white text-large bg-clip-text bg-gradient font-bold"
+                            style={{ textShadow: "0 0 64px white" }}>Ricky</span>
+                        </div>
                 </div>
             </div>
         );
     }
-
     return (
-        <div className="home__header bg-white m-5" style={{ padding: '10px', borderRadius: '30px' }}>
-            <div className='home__headerLeft'>
+        <div ref={headerRef} className="home__header bg-white m-5" style={{ padding: '8px', borderRadius: '20px' }}>
+            <div className='home__headerLeft flex items-center'>
+                <div className="white-three-stack-icon text-black p-3 rounded-full cursor-pointer ml-4" onClick={() => setToggleShow(false)}>
+                    <WhiteThreeStackIcon size={60} />
+                </div>
                 <a href="https://www.rickylin.us" className="ml-4">Home</a>
                 <a href="https://www.rickylin.us/about" className="ml-4">Resume</a>
+    
+                
             </div>
-
+    
             <form className='search' onSubmit={handleSearch}>
                 <div className='search__input'>
                     <RainbowSearchIcon className='search__inputIcon' />
@@ -109,7 +140,7 @@ const Header = ({ darkMode = false, hideButtons = true}) => {
                     <div className='icons'></div>
                     <RainbowCameraAltIcon />
                 </div>
-
+    
                 {showHistory && (
                     <div className="search__history2 mt-0 rounded-xl">
                         {searchHistory.map((item, index) => (
@@ -128,19 +159,19 @@ const Header = ({ darkMode = false, hideButtons = true}) => {
                         ))}
                     </div>
                 )}
-
+    
                 <div className="hint">
                     <RainbowLightBulb />
                     {hint}
                 </div>
-
+    
                 <div className={`search__buttons ${hideButtons ? 'search__buttonsHidden' : ''}`}>
                     <Button type='submit' variant="outlined">Google Search</Button>
                     <Button variant="outlined">I'm Feeling Lucky</Button>
                 </div>
-
+    
             </form>
-
+    
             <div className='home__headerRight'>
                 <a href="https://www.linkedin.com/in/ricky-lin1" target="_blank" rel="noopener noreferrer" className={`ml-4 ${darkMode ? 'white-text' : ''}`}>
                     Linkedin
@@ -148,13 +179,6 @@ const Header = ({ darkMode = false, hideButtons = true}) => {
                 <a href="https://github.com/rickylin1" target="_blank" rel="noopener noreferrer" className={`ml-4 ${darkMode ? 'white-text' : ''}`}>
                     Github
                 </a>
-
-                <div className="flex items-center justify-end" style={{ position: 'relative', zIndex: 9999 }}>
-                <div className="white-three-stack-icon text-black p-3 rounded-full cursor-pointer ml-auto" onClick={() => setToggleShow(false)}>
-                    <WhiteThreeStackIcon size={60} />
-                </div>
-            </div>
-
             </div>
         </div>
     );

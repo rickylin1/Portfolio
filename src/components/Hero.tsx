@@ -128,13 +128,13 @@ function Home() {
                 style={{ textShadow: "0 0 64px white" }}
               />
             )}
-            <div 
+            {/* <div 
               onClick={handleTextClick}
               className={`text-lg ${isClicked ? 'text-blue-500' : 'text-white'} text-dark-heading dark:text-light-heading font-bold cursor-pointer`}
               style={{ textShadow: "0 0 16px white" }}
             >
               *Click to change color
-            </div>
+            </div> */}
           </div>
         </div>
       </main>
