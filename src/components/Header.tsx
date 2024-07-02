@@ -15,10 +15,6 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
     const [redirectToRickyLin, setRedirectToRickyLin] = useState(false);
     const [hint, setHint] = useState("try searching for Resume");
 
-    // if(darkMode){
-    //     console.log('dark')
-    // }
-
     useEffect(() => {
         const hints = ["try searching for Ricky Lin", "try searching for Resume", "try searching for Home"];
         let currentHintIndex = 0;
@@ -31,22 +27,36 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
         return () => clearInterval(intervalId); // Cleanup interval on component unmount
     }, []);
 
-    const scrollToRef = (ref) => {
-        ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      };
+    const handleSearch = (e) => {
+        e.preventDefault();
+        console.log('You hit the Google Search button : ', input);
+        let searchResult = input.toLowerCase().trim();
+
+        if (searchResult === 'home') {
+            window.location.href = "https://www.rickylin.us/";
+            console.log('go home');
+        } else if (searchResult === 'resume') {
+            window.location.href = "https://www.rickylin.us/about";
+            console.log('go resume');
+        } else {
+            window.location.href = "https://www.rickylin.us/RickyLin";
+        }
+    };
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch(e);
+        }
+    };
 
     return (
-            <div className="home__header bg-white m-5" style={{ padding: '10px', borderRadius: '30px' }}>
+        <div className="home__header bg-white m-5" style={{ padding: '10px', borderRadius: '30px' }}>
             <div className='home__headerLeft'>
-            <a href="https://www.rickylin.us" className="ml-4">
-                        Home
-                    </a>
-                <a href="https://www.rickylin.us/RickyLin" className="ml-4">
-                    Contact Me
-                </a>
+                <a href="https://www.rickylin.us" className="ml-4">Home</a>
+                <a href="https://www.rickylin.us/about" className="ml-4">Resume</a>
             </div>
 
-            <form className='search'>
+            <form className='search' onSubmit={handleSearch}>
                 <div className='search__input'>
                     <RainbowSearchIcon className='search__inputIcon' />
                     <input
@@ -58,6 +68,7 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
                             setRedirectToRickyLin(normalizedInput === "ricky lin");
                             setInput(e.target.value);
                         }}
+                        onKeyPress={handleKeyPress} // Handle Enter key press
                     />
                     <RainbowMicIcon />
                     <div className='icons'></div>

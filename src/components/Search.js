@@ -42,11 +42,20 @@ function Search({ hideButtons = false }) {
     const search = (e) => {
         e.preventDefault();
         console.log('You hit the Google Search button : ', input);
+        let searchresult = input.toLowerCase().trim()
+        if(searchresult == 'home'){
+            window.location.href = "https://www.rickylin.us/"
+            console.log('go home')
+        }
 
-        dispatch({
-            type: actionTypes.SET_SEARCH_TERM,
-            term: input,
-        });
+        else if(searchresult == 'resume'){
+            window.location.href = "https://www.rickylin.us/about"
+            console.log('go resume')
+        }
+        
+        else{
+        window.location.href = "https://www.rickylin.us/RickyLin"
+        }
     };
 
     return (

@@ -20,8 +20,8 @@ const Home = () => {
                     <a href="https://www.rickylin.us" className="ml-4">
                         Home
                     </a>
-                    <a href="https://www.rickylin.us/RickyLin" className="ml-4">
-                        Contact Me
+                    <a href="https://www.rickylin.us/about" className="ml-4">
+                        Resume
                     </a>
                     
                     {/* <a href="https://haunted-house-3exjxb45c-rickylin1s-projects.vercel.app/" target="_blank" rel="noopener noreferrer" className="ml-4">

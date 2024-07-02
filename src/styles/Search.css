@@ -21,7 +21,7 @@
 }
 
 .hint{
-    font-size: x-small;
+    font-size: smaller;
     display: flex;
     justify-content: center;
     align-items: center;
