@@ -69,13 +69,13 @@ function Search({ hideButtons = false }) {
             setShowHistory(true);
         }
         else if (searchresult === 'home') {
-            // window.location.href = "https://www.rickylin.us/";
+            window.location.href = "https://www.rickylin.us/";
             console.log('go home');
         } else if (searchresult === 'resume') {
-            // window.location.href = "https://www.rickylin.us/about";
+            window.location.href = "https://www.rickylin.us/about";
             console.log('go resume');
         } else {
-            // window.location.href = "https://www.rickylin.us/RickyLin";
+            window.location.href = "https://www.rickylin.us/RickyLin";
         }
     };
 
