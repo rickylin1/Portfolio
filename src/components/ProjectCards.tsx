@@ -243,8 +243,8 @@ const ProjectCards = () => {
               <img
                 src={project.imageUrl}
                 alt={project.title}
-                className="mx-auto"
-                style={{ width: "100%", height: "300px", objectFit: "cover" }}
+                className="mx-auto min-h-[100px]"
+                style={{ width: "100%", objectFit: "cover" }}
               />
               <p className="text-center text-xl font-bold">{project.title}</p>
               <p
