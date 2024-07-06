@@ -66,7 +66,7 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
     return (
         <div className="flex justify-between items-center">
             {/* Left content */}
-            <div className="flex items-center">
+            <div className="left-content flex items-center">
                 <div className="white-three-stack-icon text-white p-5 rounded-full cursor-pointer" onClick={toggleIcons}>
                     <WhiteThreeStackIcon size={60} />
                 </div>
@@ -120,7 +120,7 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
             )}
 
             {/* Right content */}
-            <div className="flex items-center">
+            <div className="right-content flex items-center">
                 <div className={`icons-container ${showIcons ? 'show' : ''}`}>
                     <a href="https://www.linkedin.com/in/ricky-lin1" target="_blank" rel="noopener noreferrer" className="px-4 text-white font-bold">Linkedin</a>
                     <a href="https://github.com/rickylin1" target="_blank" rel="noopener noreferrer" className="px-4 text-white font-bold">Github</a>
