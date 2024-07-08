@@ -1,7 +1,7 @@
 import React from "react";
 import MosaicImage from "../assets/MosaicApp.png";
 import ChessImage from "../assets/ChessImage.png";
-import ScraperImage from "../assets/scraper.jpeg";
+import PoliticalImage from '../assets/Political.jpg'
 import Popup from './Popup.tsx'
 
 import {
@@ -52,12 +52,10 @@ const ProjectCards = () => {
         "FaPython",
         "FaSwift",
         "IoLogoFirebase",
-        "SiTensorflow",
         "SiPandas",
         "SiScikitlearn",
         "SiAuth0",
       ],
-      //add sci kit learn,
     },
     {
       title: "AI Chess Engine Web App",
@@ -76,17 +74,18 @@ const ProjectCards = () => {
       ],
     },
     {
-      title: "Retail Webscraper Tool",
-      imageUrl: ScraperImage,
-      githubUrl: "https://github.com/rickylin1/Web-E",
+      title: "2024 Election Political Bias Visualizer",
+      imageUrl: PoliticalImage,
+      githubUrl: "https://github.com/rickylin1/2024-Political-Bias-Visualizer",
       description:
-        "A selenium tool for scraping online public catalogue data from Amazon & Costco products. Extracted data for 10,000+ products and parsed for price, brand, category, features, and discounts. Performed exploratory data analysis for over 10 GB of data with pandas",
+        "Fine-tuned tensorflow model to analyze 15 popular new sources such as NY Times, NBC, and Fox News for bias. Web scraped text and audio data with Selenium and parsed with BeautifulSoup and analyzed via Gensim LLM. Converted multilingual news audio sources to text via OpenAI Whisper API model",
       technologies: [
+        "SiTensorflow",
         "FaPython",
         "SiSelenium",
         "SiPandas",
-        "SiFlask",
-        "SiPostgresql",
+        "SiScikitlearn",
+
       ], // Example technologies used
     },
   ];
