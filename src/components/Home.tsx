@@ -17,25 +17,22 @@ const Home = () => {
         <div className={`home ${darkMode ? 'dark' : 'light'}`}>
             <div className='home__header'>
                 <div className='home__headerLeft'>
-                    <a href="https://www.rickylin.us" className="ml-4">
+                    <a href="https://www.rickylin.us">
                         Home
                     </a>
-                    <a href="https://www.rickylin.us/about" className="ml-4">
+                    <a href="https://www.rickylin.us/about">
                         Resume
                     </a>
 
                 </div>
 
                 <div className='home__headerRight'>
-                    <a href="https://www.linkedin.com/in/ricky-lin1" target="_blank" rel="noopener noreferrer" className="ml-4">
+                    <a href="https://www.linkedin.com/in/ricky-lin1" target="_blank" rel="noopener noreferrer" className="">
                         Linkedin
                     </a>
-                    <a href="https://github.com/rickylin1" target="_blank" rel="noopener noreferrer" className="ml-4">
+                    <a href="https://github.com/rickylin1" target="_blank" rel="noopener noreferrer" className="">
                         Github
                     </a>
-                    {/* <button onClick={toggleDarkMode}>
-                    {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-                </button> */}
 
                     <AppsIcon />
                     <img className="pfp" src={RLogo} alt="profile" />

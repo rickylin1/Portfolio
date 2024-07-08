@@ -55,6 +55,23 @@
     background-color: #f0f0f0; /* Optional: Hover background color */
   }
 
+  .search__input {
+    display: flex;
+    align-items: center;
+    border: 1px solid lightgray;
+    height: 50px;
+    padding: 20px 20px;
+    border-radius: 999px;
+    width: 75vw;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    max-width: 560px;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    background-color: rgb(255, 255, 255); /* Ensure the background is white */
+}
+
+
   .animated-div {
     opacity: 0;
     transform: translateY(-20px);

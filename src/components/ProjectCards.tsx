@@ -47,14 +47,13 @@ const ProjectCards = () => {
       imageUrl: MosaicImage,
       githubUrl: "https://github.com/rickylin1/Harmonic-Mosaic-Art",
       description:
-        "Designed a Spotify album cover reconstruction algorithm comprised of 16,000,000+ color harmonic images dynamically modified using PIL to visualize genres and emotions. Developed 89% accurate XGBoost gradient classifier trained on GTZAN Kaggle dataset to predict track genres using Short-time Fourier Transformations, Mel-Frequency Cepstral Coefficients, and Label Encoding via Librosa.",
+        "Designed a Spotify album cover reconstruction algorithm comprised of color harmonic images dynamically modified using PIL to visualize genres and emotions. Developed 89% accurate XGBoost gradient classifier trained on GTZAN Kaggle dataset to predict track genres using Short-time Fourier Transformations, Mel-Frequency Cepstral Coefficients, and Label Encoding via Librosa.",
       technologies: [
         "FaPython",
         "FaSwift",
         "IoLogoFirebase",
         "SiTensorflow",
         "SiPandas",
-        "SiFlask",
         "SiScikitlearn",
         "SiAuth0",
       ],
@@ -65,7 +64,7 @@ const ProjectCards = () => {
       imageUrl: ChessImage,
       githubUrl: "https://github.com/rickylin1/Ai-Chess-Engine",
       description:
-        "Built with minimax backtracking algorithm optimized with alpha-beta pruning capable of reading 35^10 moves ahead. Designed RESTful Flask API with Postman to retrieve and interact with React UI chessboard data via a proxy. Containerized 2 Docker images through Docker Compose to streamline deployment across development and production.",
+        "Built with minimax backtracking algorithm optimized with alpha-beta pruning capable of reading 35^10 moves ahead. Designed RESTful Flask API with Postman to retrieve and interact with React UI chessboard data via a proxy. Containerized Docker images through Docker Compose to streamline deployment across development and production.",
       technologies: [
         "FaPython",
         "FaReact",
@@ -73,7 +72,6 @@ const ProjectCards = () => {
         "TbBrandTypescript",
         "SiTailwindcss",
         "FaHtml5",
-        "SiFlask",
         "SiPostman",
       ],
     },
@@ -82,7 +80,7 @@ const ProjectCards = () => {
       imageUrl: ScraperImage,
       githubUrl: "https://github.com/rickylin1/Web-E",
       description:
-        "A selenium tool for scraping online public catalogue data from Amazon & Costco products. Extracted data for 10,000+ products and parsed for price, brand, category, features, and discounts.",
+        "A selenium tool for scraping online public catalogue data from Amazon & Costco products. Extracted data for 10,000+ products and parsed for price, brand, category, features, and discounts. Performed exploratory data analysis for over 10 GB of data with pandas",
       technologies: [
         "FaPython",
         "SiSelenium",
@@ -218,54 +216,53 @@ const ProjectCards = () => {
     });
   };
   return (
-    <div className="bg-black pb-40">
-      <div className="py-20 text-5xl text-center text-white font-bold">
-        <span className="text-white">Projects</span>
-      </div>
+<div className="bg-black pb-40">
+  <div className="py-20 text-5xl text-center text-white font-bold">
+    <span className="text-white">Projects</span>
+  </div>
 
-      <div className="text-large text-center text-white font-bold">
-        <span className="text-white">Click to learn more!</span>
-      </div>
+  <div className="text-large text-center text-white font-bold">
+    <span className="text-white">Click to learn more!</span>
+  </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-10 py-6">
-        {projects.map((project, index) => (
-          <a
-            href={project.githubUrl}
-            key={index}
-            target="_blank"
-            rel="noopener noreferrer"
-            className = "z-40"
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-10 py-6">
+    {projects.map((project, index) => (
+      <a
+        href={project.githubUrl}
+        key={index}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="z-40"
+      >
+        <div
+          className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl cursor-pointer flex flex-col justify-between"
+          style={{ width: "100%", maxWidth: "350px", minHeight: "500px", margin: "auto" }}
+        >
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            className="mx-auto"
+            style={{ width: "100%", height: "200px", objectFit: "contain" }}
+          />
+          <p className="text-center text-xl font-bold">{project.title}</p>
+          <p
+            className="text-center text-gray-600 flex-grow"
+            style={{
+              minHeight: "310px",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
           >
-            <div
-              className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl cursor-pointer flex flex-col justify-between"
-              style={{ maxWidth: "60%", minHeight: "500px", margin: "auto" }}
-            >
-              <img
-                src={project.imageUrl}
-                alt={project.title}
-                className="mx-auto min-h-[100px]"
-                style={{ width: "100%", objectFit: "cover" }}
-              />
-              <p className="text-center text-xl font-bold">{project.title}</p>
-              <p
-                className="text-center text-gray-600"
-                style={{
-                  minHeight: "310px",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                }}
-              >
-                {project.description}
-              </p>
-              <div className="text-center mt-2">
-                {mapTechnologiesToIcons(project.technologies)}
-              </div>
-            </div>
-          </a>
-        ))}
-      </div>
-      {/* <Popup/> */}
-    </div>
+            {project.description}
+          </p>
+          <div className="text-center mt-2 flex-grow">
+            {mapTechnologiesToIcons(project.technologies)}
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+</div>
   );
 };
 

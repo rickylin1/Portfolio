@@ -79,6 +79,7 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
             {/* Conditionally render the search form */}
             {showIcons && (
                 <form className='search text-white' onSubmit={handleSearch}>
+                    <div className='search__inputContainer'>
                     <div className='search__input text-black'>
                         <RainbowSearchIcon className='search__inputIcon' />
                         <input
@@ -88,8 +89,12 @@ const Header = ({ darkMode = false, hideButtons = true }) => {
                             onClick={handleClick}
                             onBlur={handleBlur}
                         />
-                        <RainbowMicIcon />
+                        <div className = "pr-2">
+                            <RainbowMicIcon />
+                        </div>
+        
                         <RainbowCameraAltIcon />
+                    </div>
                     </div>
 
                     {showHistory && (
