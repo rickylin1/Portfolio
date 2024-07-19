@@ -6,7 +6,7 @@ import Header from '../components/Header.tsx';
 import '../styles/AboutPage.css';
 
 const AboutPage = () => {
-  const pdfUrl = 'https://drive.google.com/uc?id=1O5T1f_-OYiPgUfu_Pc8JFfqA5D_bjLyW';
+  const pdfUrl = 'https://drive.google.com/uc?id=1RmY7qGWzm8DL97lZ3OqaNl8MZ9eNP8Vt';
   
 
   return (
